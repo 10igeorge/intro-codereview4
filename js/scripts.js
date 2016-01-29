@@ -92,7 +92,7 @@ $(document).ready(function() {
 
     event.preventDefault();
     var pizzaSize = $("input[name='size']:checked").val();
-    var pizzaSauce = ($("input[name='sauce']:checked").val();
+    var pizzaSauce = ($("input[name='sauce']:checked").val()).toLowerCase();
 
     var pizzaToppings = [];
     $.each($("input[name='topping']:checked"), function() {
