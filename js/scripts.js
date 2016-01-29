@@ -1,7 +1,8 @@
-function Pizza(size,sauce,toppings,quantity){
+function Pizza(size,sauce,toppings,cheese,quantity){
   this.size = size;
   this.sauce = sauce;
   this.toppings = toppings;
+  this.cheese = cheese;
   this.quantity = quantity;
 }
 var priceOptionsArray = [];
@@ -56,6 +57,27 @@ Pizza.prototype.addToppings = function(){
     }
   } return priceOptionsArray;
 }
+
+Pizza.prototype.addCheese = function(){
+  var cheeseList = [
+    { cheese: "No cheese", price: 0.00},
+    { cheese: "Daiya Cheese", price: 0.50},
+    { cheese: "Creamed Cashew", price: 1.50},
+    { cheese: "Tofu Ricotta", price: 1.50}
+  ];
+  for (var prop in cheeseList){
+    for (var i=0; i < this.cheese.length; i++){
+      if (cheeseList[prop]['cheese'] == this.cheese[i]){
+       priceOptionsArray.push(cheeseList[prop]['price']);
+      }
+    }
+  } return priceOptionsArray;
+}
+
+
+
+
+
 
 
 // for (var i=0; i < priceOptionsArray.length; i++){
