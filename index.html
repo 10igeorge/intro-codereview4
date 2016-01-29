@@ -58,10 +58,12 @@
           Quantity: <br>
           <input id="quantity" name="quantity" type="number" min="1">
           <br><br>
-          <button type="button" class="btn btn-md btn-info">Place Order</button>
+          <button id="submit" type="button" class="btn btn-md btn-info">Place Order</button>
           <br><br>
           <div id="order">
-            <div class="orderPlaced">Your order has been placed! Please allow 30-45 minutes for delivery.</div>
+            <h4>Order Summary</h4>
+            <span id="orderSummary"></span><br><br>
+              <span class="orderPlaced">Your order has been placed! Please allow 30-45 minutes for delivery.</span>
           </div>
         </div>
       </form>

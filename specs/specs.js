@@ -23,4 +23,8 @@ describe('Pizza', function(){
       var testPizza = new Pizza(14, "Marinara", ["Seitan Sausage", "Mushrooms"], ["Creamed Cashew", "Tofu Ricotta"], 1)
       expect(testPizza.addCheese()).to.eql([14.99, 0.5, 2, 0.50, 1.50, 1.50]);
     });
+    it("returns the total price of the pizza after size, sauce, toppings, and cheese are added", function() {
+      var testPizza = new Pizza(14, "Marinara", ["Seitan Sausage", "Mushrooms"], ["Creamed Cashew", "Tofu Ricotta"], 1)
+      expect(testPizza.totalPrice()).to.eql(20.99);
+    });
 });

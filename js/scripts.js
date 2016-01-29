@@ -1,3 +1,6 @@
+
+// --------Business Logic-------
+
 function Pizza(size,sauce,toppings,cheese,quantity){
   this.size = size;
   this.sauce = sauce;
@@ -6,7 +9,6 @@ function Pizza(size,sauce,toppings,cheese,quantity){
   this.quantity = quantity;
 }
 var priceOptionsArray = [];
-var finalPrice = 0;
 Pizza.prototype.basePrice = function(){
   if (this.size === 10){
     return priceOptionsArray.push(8.99);
@@ -51,7 +53,7 @@ Pizza.prototype.addToppings = function(){
   ];
   for (var prop in toppingList){      //Searches through list of toppings and pushes price of matching into priceOptionsArray
     for (var i=0; i < this.toppings.length; i++){ //This was a pain in the ass, reference for future object array loops
-      if (toppingList[prop]['topping'] == this.toppings[i]){
+      if (this.toppings[i] == toppingList[prop]['topping']){
        priceOptionsArray.push(toppingList[prop]['price']);
       }
     }
@@ -74,13 +76,38 @@ Pizza.prototype.addCheese = function(){
   } return priceOptionsArray;
 }
 
+Pizza.prototype.totalPrice = function(){
+  var finalPrice = 0;
+  for (var i=0; i < priceOptionsArray.length; i++){
+    finalPrice = finalPrice + priceOptionsArray[i];
+  } return finalPrice.toFixed(2) * this.quantity;
+}
 
 
+// --------User Interface Logic--------
 
 
+$(document).ready(function() {
+  $("button#submit").click(function(event) {
 
+    event.preventDefault();
+    var pizzaSize = $("input[name='size']:checked").val();
+    var pizzaSauce = ($("input[name='sauce']:checked").val();
 
-// for (var i=0; i < priceOptionsArray.length; i++){
-//   finalPrice += priceOptionsArray[i];
-// }
-// return finalPrice;
+    var pizzaToppings = [];
+    $.each($("input[name='topping']:checked"), function() {
+      pizzaToppings.push($(this).val());
+    });
+    pizzaToppings = pizzaToppings.join(', ');
+
+    var pizzaCheese = [];
+    $.each($("input[name='cheese']:checked"), function() {
+      pizzaCheese.push($(this).val());
+    });
+    pizzaCheese = pizzaCheese.join(' and ');
+
+    var quantity = parseInt($('input#quantity').val());
+    var newPizza = new Pizza(pizzaSize,pizzaSauce,pizzaToppings,pizzaCheese,quantity);
+    $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce + " sauce, " + pizzaToppings + " and " + pizzaCheese + " cheese");
+  });
+});
