@@ -8,11 +8,11 @@ describe('Pizza', function(){
     });
     it("creates new pizza with base price of corresponding size", function(){
       var testPizza = new Pizza(14, "Marinara", ["Daiya Cheese", "Mushrooms", "Vegan Sausage"], 1)
-      expect(testPizza.basePrice()).to.equal(14.99);
+      expect(testPizza.basePrice()).to.eql([14.99]);
     });
     it("adds sauce price to base pizza user has selected", function() {
       var testPizza = new Pizza(14, "Marinara", ["Daiya Cheese", "Mushrooms", "Vegan Sausage"], 1)
-      expect(testPizza.sauceAdd()).to.equal(0.50);
+      expect(testPizza.addSauce()).to.eql([14.99, 0.5]);
     });
 
 });
