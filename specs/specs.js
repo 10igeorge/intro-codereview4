@@ -1,5 +1,9 @@
-describe('leapYear', function(){
-    it("is false for a year that is not divisible by 4, 100, or 400", function(){
-      expect(leapYear(1993)).to.equal(false);
+describe('Pizza', function(){
+    it("creates a new object based on user choices for pizza", function(){
+      var testPizza = new Pizza(14, "Marinara", ["Daiya Cheese", "Mushrooms", "Vegan Sausage"], 1)
+      expect(testPizza.size).to.equal(14);
+      expect(testPizza.sauce).to.equal("Marinara");
+      expect(testPizza.toppings).to.eql(["Daiya Cheese", "Mushrooms", "Vegan Sausage"]);
+      expect(testPizza.quantity).to.equal(1);
     });
 });
