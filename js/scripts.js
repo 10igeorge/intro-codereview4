@@ -18,6 +18,7 @@ Pizza.prototype.basePrice = function(){
     return "Please select a size!"
   }
 }
+
 Pizza.prototype.addSauce = function(){
   var sauceList = [
     { sauce: "No sauce", price: 0.00},
@@ -32,24 +33,32 @@ Pizza.prototype.addSauce = function(){
   } return priceOptionsArray;
 }
 
-// Pizza.prototype.sauceAdd = function() {
-//   var sauceList = [
-//     { sauce: "No sauce", price: 0.00},
-//     { sauce: "Marinara", price: 0.50},
-//     { sauce: "BBQ Sauce", price: 1.00},
-//     { sauce: "Cashew Alfredo", price: 1.50}
-//   ];
-//   for (var prop in sauceList){
-//     debugger;
-//     if (sauceList[prop]['sauce'] === this.sauce){
-//       finalPrice = finalPrice + sauceList[prop]['price'];
-//       return finalPrice
-//     }
-//   }
+Pizza.prototype.addToppings = function(){
+  var toppingList = [
+    { topping: "Field Roast Hamburger", price: 2.00},
+    { topping: "Seitan Sausage", price: 2.00},
+    { topping: "Chick'n", price: 2.00},
+    { topping: "BBQ Soy Curls", price: 2.00},
+    { topping: "Jackfruit Bacon", price: 1.00},
+    { topping: "Mushrooms", price: 0.50},
+    { topping: "Spinach", price: 0.50},
+    { topping: "Onions", price: 0.50},
+    { topping: "Black Olives", price: 0.50},
+    { topping: "Artichokes", price: 0.50},
+    { topping: "Garlic", price: 0.50},
+    { topping: "Pineapple", price: 0.50}
+  ];
+  for (var prop in toppingList){      //Searches through list of toppings and pushes price of matching into priceOptionsArray
+    for (var i=0; i < this.toppings.length; i++){ //This was a pain in the ass, reference for future object array loops
+      if (toppingList[prop]['topping'] == this.toppings[i]){
+       priceOptionsArray.push(toppingList[prop]['price']);
+      }
+    }
+  } return priceOptionsArray;
+}
+
+
+// for (var i=0; i < priceOptionsArray.length; i++){
+//   finalPrice += priceOptionsArray[i];
 // }
-  // }
-  // for (var i=0; i < sauceList.length; i++){
-  //   return sauceList[i].sauce;
-    // var saucePrice = sauceList[i].price;
-    // return this.sauce;
-  // }
+// return finalPrice;
