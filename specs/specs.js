@@ -12,7 +12,7 @@ describe('Pizza', function(){
     });
     it("adds sauce price to base pizza user has selected", function() {
       var testPizza = new Pizza(14, "Marinara", ["Daiya Cheese", "Mushrooms", "Vegan Sausage"], 1)
-      expect(testPizza.sauceAdd()).to.equal("Marinara");
+      expect(testPizza.sauceAdd()).to.equal(0.50);
     });
 
 });
