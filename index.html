@@ -9,6 +9,63 @@
     <title>Pizza</title>
   </head>
   <body>
-
+    <header>
+      <div class="container">
+        <h1>Pizza Pizza</h1>
+      </div>
+    </header>
+    <div class="container">
+      <form id="order">
+        <div class="row">
+          <div class="col-md-3">
+              What size would you like?<br>
+              <input type="radio" name="size" value="10" checked> 10", $8.99<br>
+              <input type="radio" name="size" value="12"> 12", $10.99<br>
+              <input type="radio" name="size" value="14"> 14", $14.99
+          </div>
+          <div class="col-md-3">
+            What type of sauce would you like?<br>
+            <input type="checkbox" name="sauce" class="sauce" value="No Sauce"> No Sauce, FREE<br>
+            <input type="checkbox" name="sauce" class="sauce" value="Marinara"> Marinara, $0.50<br>
+            <input type="checkbox" name="sauce" class="sauce" value="BBQ Sauce"> BBQ Sauce, $1.00<br>
+            <input type="checkbox" name="sauce" class="sauce" value="Cashew Alfredo"> Cashew Alfredo, $1.50
+          </div>
+          <div class="col-md-3">
+            What toppings would you like?<br>
+            <input type="checkbox" name="topping" class="topping" value="Field Roast Hamburger"> Field Roast Hamburger, $2.00<br>
+            <input type="checkbox" name="topping" class="topping" value="Seitan Sausage"> Seitan Sausage, $2.00<br>
+            <input type="checkbox" name="topping" class="topping" value="Chick'n"> Chick'n, $2.00<br>
+            <input type="checkbox" name="topping" class="topping" value="BBQ Soy Curls"> BBQ Soy Curls, $2.00<br>
+            <input type="checkbox" name="topping" class="topping" value="Jackfruit Bacon"> Jackfruit Bacon, $1.00<br>
+            <input type="checkbox" name="topping" class="topping" value="Mushrooms"> Mushrooms, $0.50<br>
+            <input type="checkbox" name="topping" class="topping" value="Spinach"> Spinach, $0.50<br>
+            <input type="checkbox" name="topping" class="topping" value="Onions"> Onions, $0.50<br>
+            <input type="checkbox" name="topping" class="topping" value="Black Olives"> Black Olives, $0.50<br>
+            <input type="checkbox" name="topping" class="topping" value="Artichokes"> Artichokes, $0.50<br>
+            <input type="checkbox" name="topping" class="topping" value="Garlic"> Garlic, $0.50<br>
+            <input type="checkbox" name="topping" class="topping" value="Pineapple"> Pineapple, $0.50
+          </div>
+          <div class="col-md-3">
+            What kind of cheese would you like?<br>
+            <input type="checkbox" name="cheese" class="cheese" value="No Cheese"> No Cheese, FREE<br>
+            <input type="checkbox" name="cheese" class="cheese" value="Daiya Cheese"> Daiya Cheese, $1.00<br>
+            <input type="checkbox" name="cheese" class="cheese" value="Creamed Cashew"> Creamed Cashew, $1.50<br>
+            <input type="checkbox" name="cheese" class="cheese" value="Tofu Ricotta"> Tofu Ricotta, $1.50
+          </div>
+        </div>
+        <div class="row">
+          <br><br><br>
+          Quantity: <br>
+          <input id="quantity" name="quantity" type="number" min="1">
+          <br>
+          <br>
+          <button type="button" class="btn btn-lg btn-info">Place Order</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>
+
+<!-- <div class="col col-md-6" id="order">
+  <div class="orderPlaced">Your order is on its way to you! Please allow 30-45 minutes for delivery.</div>
+</div> -->
