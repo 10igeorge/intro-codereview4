@@ -25,9 +25,9 @@ Pizza.prototype.basePrice = function(){
 Pizza.prototype.addSauce = function(){
   var sauceList = [
     { sauce: "No sauce", price: 0.00},
-    { sauce: "Marinara", price: 0.50},
-    { sauce: "BBQ Sauce", price: 1.00},
-    { sauce: "Cashew Alfredo", price: 1.50}
+    { sauce: "Marinara Sauce", price: 0.50},
+    { sauce: "Barbecue Sauce", price: 1.00},
+    { sauce: "Cashew Alfredo Sauce", price: 1.50}
   ];
   for (var prop in sauceList){
     if (sauceList[prop]['sauce'] === this.sauce){
@@ -41,7 +41,7 @@ Pizza.prototype.addToppings = function(){
     { topping: "Field Roast Hamburger", price: 2.00},
     { topping: "Seitan Sausage", price: 2.00},
     { topping: "Chick'n", price: 2.00},
-    { topping: "BBQ Soy Curls", price: 2.00},
+    { topping: "Barbecue Soy Curls", price: 2.00},
     { topping: "Jackfruit Bacon", price: 1.00},
     { topping: "Mushrooms", price: 0.50},
     { topping: "Spinach", price: 0.50},
@@ -64,8 +64,8 @@ Pizza.prototype.addCheese = function(){
   var cheeseList = [
     { cheese: "No cheese", price: 0.00},
     { cheese: "Daiya Cheese", price: 0.50},
-    { cheese: "Creamed Cashew", price: 1.50},
-    { cheese: "Tofu Ricotta", price: 1.50}
+    { cheese: "Creamed Cashew Cheese", price: 1.50},
+    { cheese: "Tofu Ricotta Cheese", price: 1.50}
   ];
   for (var prop in cheeseList){
     for (var i=0; i < this.cheese.length; i++){
@@ -89,25 +89,25 @@ Pizza.prototype.totalPrice = function(){
 
 $(document).ready(function() {
   $("button#submit").click(function(event) {
-
+    $('#order').show();
     event.preventDefault();
     var pizzaSize = $("input[name='size']:checked").val();
-    var pizzaSauce = ($("input[name='sauce']:checked").val()).toLowerCase();
+    var pizzaSauce = $("input[name='sauce']:checked").val().toLowerCase();
 
     var pizzaToppings = [];
     $.each($("input[name='topping']:checked"), function() {
       pizzaToppings.push($(this).val());
     });
-    pizzaToppings = pizzaToppings.join(', ');
+    pizzaToppings = pizzaToppings.join(', ').toLowerCase();
 
     var pizzaCheese = [];
     $.each($("input[name='cheese']:checked"), function() {
       pizzaCheese.push($(this).val());
     });
-    pizzaCheese = pizzaCheese.join(' and ');
+    pizzaCheese = pizzaCheese.join(', ').toLowerCase();
 
     var quantity = parseInt($('input#quantity').val());
     var newPizza = new Pizza(pizzaSize,pizzaSauce,pizzaToppings,pizzaCheese,quantity);
-    $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce + " sauce, " + pizzaToppings + " and " + pizzaCheese + " cheese");
+    $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce + ", " + pizzaToppings + " and " + pizzaCheese);
   });
 });
