@@ -108,6 +108,7 @@ $(document).ready(function() {
 
     var quantity = parseInt($('input#quantity').val());
     var newPizza = new Pizza(pizzaSize,pizzaSauce,pizzaToppings,pizzaCheese,quantity);
+    var price =
     $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce + ", " + pizzaToppings + " and " + pizzaCheese);
   });
 });

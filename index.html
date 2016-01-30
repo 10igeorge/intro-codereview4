@@ -11,8 +11,10 @@
   <body>
     <header>
       <div class="container">
-        <h1>Pizza Pizza</h1>
+        <img src="img/pizza.png" class="img1"><img src="img/pizza.png" class="img2">
+        <h1>Pizza Pizza</h1><span class='line'> </span>
       </div>
+      <br><br><br>
     </header>
     <div class="container">
       <form>
@@ -53,17 +55,17 @@
             <input type="checkbox" name="cheese" class="cheese" value="Tofu Ricotta Cheese"> Tofu Ricotta Cheese, $1.50
           </div>
         </div>
-        <div class="row">
+        <div class="quantityRow">
           <br><br><br>
           Quantity: <br>
           <input id="quantity" name="quantity" type="number" min="1">
           <br><br>
-          <button id="submit" type="button" class="btn btn-md btn-info">Place Order</button>
-          <br><br>
+          <button id="submit" type="button" class="btn btn-md btn-danger">Place Order</button>
           <div id="order">
-            <h4>Order Summary</h4>
+            <h3>Order Summary</h3>
             <span id="orderSummary"></span><br><br>
-            <span class="orderPlaced">Your order has been placed! Please allow 30-45 minutes for delivery.</span>
+              <span id="orderPrice"></span>
+              <span class="orderPlaced">Your order has been placed! Please allow 30-45 minutes for delivery.</span>
           </div>
         </div>
       </form>
