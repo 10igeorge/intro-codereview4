@@ -8,11 +8,11 @@ function Pizza(size,sauce,toppings,cheese,quantity){
 }
 var priceOptionsArray = [];
 Pizza.prototype.basePrice = function(){
-  if (this.size === 10){
+  if (this.size === "10"){
     return priceOptionsArray.push(8.99);
-  } else if (this.size === 12){
+  } else if (this.size === "12"){
     priceOptionsArray.push(10.99);
-  } else if (this.size === 14){
+  } else if (this.size === "14"){
     priceOptionsArray.push(14.99);
     return priceOptionsArray;
   } else{
@@ -84,7 +84,7 @@ $(document).ready(function() {
     $('#order').show();
     event.preventDefault();
     var pizzaSize = $("input[name='size']:checked").val();
-    var pizzaSauce = $("input[name='sauce']:checked").val().toLowerCase();
+    var pizzaSauce = $("input[name='sauce']:checked").val();
     var pizzaToppings = [];
     $.each($("input[name='topping']:checked"), function() {
       pizzaToppings.push($(this).val());
@@ -98,7 +98,6 @@ $(document).ready(function() {
     pizzaToppings = pizzaToppings.join(', ').toLowerCase();
     pizzaCheese = pizzaCheese.join(', ').toLowerCase();
     $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce + ", " + pizzaToppings + " and " + pizzaCheese);
-    console.log(newPizza.totalPrice());
-    $('#orderPrice').append("Your total is: $" + newPizza.totalPrice()); //Price says 0??
+    $('#orderPrice').append("Your total is: $" + newPizza.totalPrice(newPizza.basePrice(pizzaSize) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings) +  newPizza.addCheese(pizzaCheese))); //Price says 0??
   });
 });
