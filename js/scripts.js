@@ -74,6 +74,7 @@ Pizza.prototype.addCheese = function(){
     }
   } return priceOptionsArray;
 }
+
 Pizza.prototype.totalPrice = function(){
   var finalPrice = 0;
   for (var i=0; i < priceOptionsArray.length; i++){
@@ -112,7 +113,7 @@ $(function() {
     } else {
       $('#order').show();
 
-      $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce.toLowerCase() + ", " + pizzaToppings.toLowerCase() + " and " + pizzaCheese.toLowerCase());
+      $('#orderSummary').append(newPizza.quantity + " " + newPizza.size + '" pizza(s) with ' + newPizza.sauce.toLowerCase() + ", " + pizzaToppings.toLowerCase() + " and " + pizzaCheese.toLowerCase());
 
       $('#orderPrice').append("Your total is: $" + newPizza.totalPrice(newPizza.basePrice(pizzaSize) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings) +  newPizza.addCheese(pizzaCheese)));
       document.getElementById("pizzaForm").reset();
