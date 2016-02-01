@@ -107,14 +107,15 @@ $(function() {
 
     if (quantity <= 0) {
       alert("Please enter a positive quantity");
+    } else if ($("input[name='topping']:checked").length <= 0 ||  $("input[name='cheese']:checked").length <= 0){
+      alert("Please select toppings/cheese");
     } else {
       $('#order').show();
 
       $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce.toLowerCase() + ", " + pizzaToppings.toLowerCase() + " and " + pizzaCheese.toLowerCase());
 
       $('#orderPrice').append("Your total is: $" + newPizza.totalPrice(newPizza.basePrice(pizzaSize) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings) +  newPizza.addCheese(pizzaCheese)));
+      document.getElementById("pizzaForm").reset();
     }
-    document.getElementById("pizzaForm").reset();
-
   });
 });
