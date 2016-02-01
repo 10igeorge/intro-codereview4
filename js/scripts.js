@@ -87,8 +87,7 @@ $(function() {
   $("button#submit").click(function(event) {
     $('#order').show();
     event.preventDefault();
-    $('#orderSummary').empty();
-    $('#orderPrice').empty();
+    $('#orderSummary, #orderPrice').empty();
     var pizzaSize = $("input[name='size']:checked").val();
     var pizzaSauce = $("input[name='sauce']:checked").val();
     var quantity = ($('input#quantity').val());
@@ -109,6 +108,9 @@ $(function() {
 
     $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce.toLowerCase() + ", " + pizzaToppings.toLowerCase() + " and " + pizzaCheese.toLowerCase());
 
-    $('#orderPrice').append("Your total is: $" + newPizza.totalPrice(newPizza.basePrice(pizzaSize) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings) +  newPizza.addCheese(pizzaCheese))); //Price says 0??
+    $('#orderPrice').append("Your total is: $" + newPizza.totalPrice(newPizza.basePrice(pizzaSize) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings) +  newPizza.addCheese(pizzaCheese)));
+
+    document.getElementById("pizzaForm").reset();
+
   });
 });
