@@ -87,6 +87,8 @@ $(function() {
   $("button#submit").click(function(event) {
     $('#order').show();
     event.preventDefault();
+    $('#orderSummary').empty();
+    $('#orderPrice').empty();
     var pizzaSize = $("input[name='size']:checked").val();
     var pizzaSauce = $("input[name='sauce']:checked").val();
     var quantity = ($('input#quantity').val());
