@@ -85,7 +85,6 @@ Pizza.prototype.totalPrice = function(){
 
 $(function() {
   $("button#submit").click(function(event) {
-    $('#order').show();
     event.preventDefault();
     $('#orderSummary, #orderPrice').empty();
     var pizzaSize = $("input[name='size']:checked").val();
@@ -106,10 +105,15 @@ $(function() {
     pizzaToppings = pizzaToppings.join(', ');
     pizzaCheese = pizzaCheese.join(', ');
 
-    $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce.toLowerCase() + ", " + pizzaToppings.toLowerCase() + " and " + pizzaCheese.toLowerCase());
+    if (quantity <= 0) {
+      alert("Please enter a positive quantity");
+    } else {
+      $('#order').show();
 
-    $('#orderPrice').append("Your total is: $" + newPizza.totalPrice(newPizza.basePrice(pizzaSize) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings) +  newPizza.addCheese(pizzaCheese)));
+      $('#orderSummary').append(newPizza.size + " inch pizza with " + newPizza.sauce.toLowerCase() + ", " + pizzaToppings.toLowerCase() + " and " + pizzaCheese.toLowerCase());
 
+      $('#orderPrice').append("Your total is: $" + newPizza.totalPrice(newPizza.basePrice(pizzaSize) + newPizza.addSauce(pizzaSauce) + newPizza.addToppings(pizzaToppings) +  newPizza.addCheese(pizzaCheese)));
+    }
     document.getElementById("pizzaForm").reset();
 
   });
