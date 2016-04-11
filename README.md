@@ -10,7 +10,7 @@ Enjoy!
 
 #### Setup/Installation Requirements
 
-* run $git clone https://github.com/10igeorge/pingpong.git
+* run `git clone https://github.com/10igeorge/pingpong.git`
 * open index.html
 
 ###Technologies
